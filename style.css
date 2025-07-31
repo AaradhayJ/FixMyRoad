@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  font-family: "Verdana", sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+input, select, button {
+  margin: 5px 0;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.report-box {
+  background: var(--report-bg);
+  border-left: 5px solid var(--report-border);
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+button.delete-btn {
+  background: crimson;
+  color: white;
+  border: none;
+  margin-top: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button.delete-btn:hover {
+  background: darkred;
+}
+
+/* Light Mode */
+body.light-mode {
+  --bg: #f9f9f9;
+  --text: #222;
+  --report-bg: #fff;
+  --report-border: #ffa500;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Dark Mode */
+body.dark-mode {
+  --bg: #121212;
+  --text: #f1f1f1;
+  --report-bg: #1e1e1e;
+  --report-border: #ff6347;
+  background: var(--bg);
+  color: var(--text);
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>FixMyRoad - Report Traffic Issues</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<body class="light-mode">
+  <div class="container">
+    <h1>🚧 FixMyRoad</h1>
+
+    <button id="toggleMode">🌗 Toggle Theme</button>
+
+    <div id="auth">
+      <input type="email" id="email" placeholder="Email">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="signUp()">Sign Up</button>
+      <button onclick="signIn()">Login</button>
+      <button onclick="signOut()">Logout</button>
+    </div>
+
+    <div id="reportForm">
+      <h2>Report an Issue</h2>
+      <select id="issueType">
+        <option value="Pothole">Pothole</option>
+        <option value="Signal Issue">Signal Issue</option>
+        <option value="Accident">Accident</option>
+        <option value="Other">Other</option>
+      </select>
+      <button onclick="submitReport()">Submit</button>
+    </div>
+
+    <h2>🌐 Public Reports</h2>
+    <div id="reportList">Loading...</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
