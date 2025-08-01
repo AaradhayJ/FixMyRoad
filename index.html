@@ -1,43 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>FixMyRoad - Report Traffic Issues</title>
-  <link rel="stylesheet" href="style.css">
+  <title>FixMyRoad - Traffic Reporter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .dark { background: #111; color: #eee; }
+    .report-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+    }
+    .dark .report-box { background-color: #222; border-color: #444; }
+    input, select, button {
+      padding: 6px;
+      margin: 5px;
+      border-radius: 4px;
+    }
+    button { cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h1>FixMyRoad</h1>
+  <p id="statusDisplay">Checking auth status...</p>
+  <button onclick="toggleTheme()">Toggle Theme</button>
+  <p id="local-info">Loading local info...</p>
+
+  <!-- Login Form -->
+  <div id="auth-section">
+    <h3>Login or Sign Up</h3>
+    <input id="email" type="email" placeholder="Email" required>
+    <input id="password" type="password" placeholder="Password" required>
+    <br>
+    <button onclick="signIn()">Sign In</button>
+    <button onclick="signUp()">Sign Up</button>
+  </div>
+
+  <!-- Report Form -->
+  <div id="reportForm" style="display: none;">
+    <h3>Submit a Traffic Issue</h3>
+    <select id="issueType">
+      <option value="Pothole">Pothole</option>
+      <option value="Traffic Congestion">Traffic Congestion</option>
+      <option value="Broken Signal">Broken Signal</option>
+      <option value="Accident">Accident</option>
+      <option value="Illegal Parking">Illegal Parking</option>
+    </select>
+    <br>
+    <button onclick="submitReport()">Submit Report</button>
+    <button onclick="signOut()">Sign Out</button>
+  </div>
+
+  <hr>
+
+  <h3>Public Reports</h3>
+  <div id="reportList">Loading reports...</div>
+
+  <!-- Firebase & App Scripts -->
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-</head>
-<body class="light-mode">
-  <div class="container">
-    <h1>🚧 FixMyRoad</h1>
-
-    <button id="toggleMode">🌗 Toggle Theme</button>
-
-    <div id="auth">
-      <input type="email" id="email" placeholder="Email">
-      <input type="password" id="password" placeholder="Password">
-      <button onclick="signUp()">Sign Up</button>
-      <button onclick="signIn()">Login</button>
-      <button onclick="signOut()">Logout</button>
-    </div>
-
-    <div id="reportForm">
-      <h2>Report an Issue</h2>
-      <select id="issueType">
-        <option value="Pothole">Pothole</option>
-        <option value="Signal Issue">Signal Issue</option>
-        <option value="Accident">Accident</option>
-        <option value="Traffic Congestion">Traffic Congestion</option>
-        <option value="Other">Other</option>
-      </select>
-      <button onclick="submitReport()">Submit</button>
-    </div>
-
-    <h2>🌐 Public Reports</h2>
-    <div id="reportList">Loading...</div>
-  </div>
-
   <script src="script.js"></script>
+
 </body>
 </html>
