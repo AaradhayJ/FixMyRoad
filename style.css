@@ -3,20 +3,20 @@ body {
   font-family: "Verdana", sans-serif;
   transition: background 0.3s, color 0.3s;
 }
- 
+
 .container {
   max-width: 600px;
   margin: auto;
   padding: 20px;
 }
- 
+
 input, select, button {
   margin: 5px 0;
   padding: 10px;
   font-size: 16px;
   width: 100%;
 }
- 
+
 .report-box {
   background: var(--report-bg);
   border-left: 5px solid var(--report-border);
@@ -24,7 +24,7 @@ input, select, button {
   margin-top: 10px;
   border-radius: 6px;
 }
- 
+
 button.delete-btn {
   background: crimson;
   color: white;
@@ -34,11 +34,11 @@ button.delete-btn {
   cursor: pointer;
   font-size: 14px;
 }
- 
+
 button.delete-btn:hover {
   background: darkred;
 }
- 
+
 /* Light Mode */
 body.light-mode {
   --bg: #f9f9f9;
@@ -48,7 +48,7 @@ body.light-mode {
   background: var(--bg);
   color: var(--text);
 }
- 
+
 /* Dark Mode */
 body.dark-mode {
   --bg: #121212;
