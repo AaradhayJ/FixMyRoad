@@ -1,60 +1,138 @@
+/* === Global Styles === */
+:root {
+  --light-bg: #f5f5f5;
+  --light-text: #222;
+  --light-box: #ffffff;
+
+  --dark-bg: #121212;
+  --dark-text: #f1f1f1;
+  --dark-box: #1e1e1e;
+
+  --primary: #ff7f50;
+  --accent: #ffa500;
+  --danger: #dc3545;
+  --success: #28a745;
+  --border-radius: 8px;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* === Base === */
 body {
+  font-family: var(--font-family);
+  background-color: var(--light-bg);
+  color: var(--light-text);
   margin: 0;
-  font-family: "Verdana", sans-serif;
-  transition: background 0.3s, color 0.3s;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.container {
-  max-width: 600px;
-  margin: auto;
+/* === Dark Theme === */
+body.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+body.dark .report-box {
+  background-color: var(--dark-box);
+  border-color: #333;
+}
+
+/* === Header === */
+header {
+  background-color: var(--primary);
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+#top-right button {
+  margin-left: 10px;
+  background: #fff;
+  color: var(--primary);
+  border: none;
+  padding: 8px 12px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#top-right button:hover {
+  background: #eee;
+}
+
+/* === About Us === */
+#about-us {
+  padding: 15px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #ccc;
+}
+
+/* === Local Info Bar === */
+#local-info-bar {
+  background-color: var(--accent);
+  color: #000;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* === Auth Section === */
+#auth-section, #reportForm, #reportDisplay {
   padding: 20px;
+  max-width: 700px;
+  margin: auto;
 }
 
-input, select, button {
-  margin: 5px 0;
-  padding: 10px;
-  font-size: 16px;
+input, select {
   width: 100%;
-}
-
-.report-box {
-  background: var(--report-bg);
-  border-left: 5px solid var(--report-border);
   padding: 10px;
-  margin-top: 10px;
-  border-radius: 6px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+  font-size: 1em;
 }
 
-button.delete-btn {
-  background: crimson;
+/* === Buttons === */
+button {
+  background-color: var(--primary);
   color: white;
   border: none;
-  margin-top: 5px;
-  padding: 5px 10px;
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
   cursor: pointer;
-  font-size: 14px;
+  font-size: 1em;
 }
 
-button.delete-btn:hover {
-  background: darkred;
+button:hover {
+  background-color: #e06a3b;
 }
 
-/* Light Mode */
-body.light-mode {
-  --bg: #f9f9f9;
-  --text: #222;
-  --report-bg: #fff;
-  --report-border: #ffa500;
-  background: var(--bg);
-  color: var(--text);
+/* === Reports === */
+.report-box {
+  background-color: var(--light-box);
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: var(--border-radius);
+  margin-bottom: 15px;
+  transition: background-color 0.3s, border 0.3s;
 }
 
-/* Dark Mode */
-body.dark-mode {
-  --bg: #121212;
-  --text: #f1f1f1;
-  --report-bg: #1e1e1e;
-  --report-border: #ff6347;
-  background: var(--bg);
-  color: var(--text);
+.report-box strong {
+  color: var(--danger);
+  font-size: 1.1em;
+}
+
+/* === Footer === */
+footer {
+  padding: 20px;
+  text-align: center;
+  color: #888;
+  font-size: 0.9em;
 }
