@@ -1,188 +1,60 @@
-/* ===========================================
-   Fix My Road - Premium-Level CSS
-   Author: ChatGPT Web Designer
-   =========================================== */
- 
-/* ========== CSS Variables ========== */
-:root {
-  --bg-color: #f4f7fb;
-  --text-color: #1e1e1e;
-  --card-color: #ffffff;
-  --primary-color: #1976d2;
-  --accent-color: #00e676;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  --radius: 16px;
- 
-  --font-heading: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
- 
-  --spacing-xs: 6px;
-  --spacing-sm: 12px;
-  --spacing-md: 20px;
-  --spacing-lg: 40px;
-}
- 
-body.dark-mode {
-  --bg-color: #0d1117;
-  --text-color: #e6edf3;
-  --card-color: #161b22;
-  --primary-color: #58a6ff;
-  --accent-color: #00e676;
-  --shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
-}
- 
-/* ========== Reset & Base Styles ========== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
- 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: var(--font-body);
-  line-height: 1.6;
-  transition: all 0.3s ease-in-out;
+  margin: 0;
+  font-family: "Verdana", sans-serif;
+  transition: background 0.3s, color 0.3s;
 }
  
 .container {
-  max-width: 1200px;
+  max-width: 600px;
   margin: auto;
-  padding: var(--spacing-lg) var(--spacing-md);
+  padding: 20px;
 }
  
-h1, h2, h3, h4, h5 {
-  font-family: var(--font-heading);
-  color: var(--primary-color);
+input, select, button {
+  margin: 5px 0;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
 }
  
-/* ========== Buttons ========== */
-button {
-  background: var(--primary-color);
+.report-box {
+  background: var(--report-bg);
+  border-left: 5px solid var(--report-border);
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+ 
+button.delete-btn {
+  background: crimson;
   color: white;
   border: none;
-  border-radius: var(--radius);
-  padding: var(--spacing-sm) var(--spacing-md);
-  font-size: 1rem;
-  font-weight: 600;
-  transition: 0.3s ease all;
+  margin-top: 5px;
+  padding: 5px 10px;
   cursor: pointer;
-  box-shadow: var(--shadow);
+  font-size: 14px;
 }
  
-button:hover {
-  background: var(--accent-color);
-  transform: translateY(-2px);
+button.delete-btn:hover {
+  background: darkred;
 }
  
-/* ========== Dark Mode Toggle ========== */
-.toggle-theme {
-  position: fixed;
-  top: var(--spacing-md);
-  right: var(--spacing-md);
-  background: var(--primary-color);
-  color: white;
-  padding: var(--spacing-sm);
-  border-radius: 50%;
-  font-size: 1.4rem;
-  box-shadow: var(--shadow);
-  z-index: 1000;
-  transition: background-color 0.3s ease;
+/* Light Mode */
+body.light-mode {
+  --bg: #f9f9f9;
+  --text: #222;
+  --report-bg: #fff;
+  --report-border: #ffa500;
+  background: var(--bg);
+  color: var(--text);
 }
  
-.toggle-theme:hover {
-  background: var(--accent-color);
-}
- 
-/* Make sure body has dark-mode or light-mode class set for theme to work */
-body:not(.dark-mode):not(.light-mode) {
-  background-color: #fff;
-  color: #000;
-}
- 
-/* ========== Report Cards ========== */
-.report-card {
-  background: var(--card-color);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: var(--spacing-md);
-  margin-bottom: var(--spacing-md);
-  transition: 0.3s ease all;
-  position: relative;
-  overflow: hidden;
-}
- 
-.report-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-}
- 
-.report-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: var(--spacing-sm);
-  color: var(--primary-color);
-}
- 
-.report-status {
-  display: inline-block;
-  padding: 4px 14px;
-  border-radius: 50px;
-  background-color: var(--accent-color);
-  color: #fff;
-  font-size: 0.75rem;
-  margin-bottom: var(--spacing-sm);
-  font-weight: bold;
-  text-transform: uppercase;
-}
- 
-.report-details {
-  font-size: 1rem;
-  color: var(--text-color);
-  line-height: 1.6;
-}
- 
-/* ========== Delete Button ========== */
-.delete-btn {
-  position: absolute;
-  top: var(--spacing-sm);
-  right: var(--spacing-sm);
-  background: transparent;
-  color: #f44336;
-  font-size: 1.3rem;
-  visibility: hidden;
-  transition: all 0.2s ease-in-out;
-}
- 
-.report-card:hover .delete-btn {
-  visibility: visible;
-}
- 
-.delete-btn:hover {
-  transform: scale(1.3);
-  color: #ff1744;
-}
- 
-/* ========== Responsive Design ========== */
-@media (max-width: 768px) {
-  .container {
-    padding: var(--spacing-md);
-  }
-  .report-card {
-    padding: var(--spacing-sm);
-  }
-}
- 
-/* ========== Image Styling ========== */
-img, .card-img-top {
-  width: 100%;
-  border-radius: var(--radius);
-  object-fit: cover;
-  margin-bottom: var(--spacing-sm);
-}
- 
-/* ========== Accessibility ========== */
-a, button:focus, .toggle-theme:focus, .delete-btn:focus {
-  outline: 2px dashed var(--accent-color);
-  outline-offset: 4px;
+/* Dark Mode */
+body.dark-mode {
+  --bg: #121212;
+  --text: #f1f1f1;
+  --report-bg: #1e1e1e;
+  --report-border: #ff6347;
+  background: var(--bg);
+  color: var(--text);
 }
